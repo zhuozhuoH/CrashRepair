@@ -2,6 +2,9 @@ all: install
 
 deps:
 	git submodule update --init --recursive
+	cd source-repair/extern/spdlog && git fetch --tags && git checkout v1.12.0 && cd -
+	cd source-repair/extern/z3 && git fetch --tags && git checkout z3-4.13.4 && cd -
+	cd source-repair/extern/pegtl && git checkout main && cd -
 
 builder: deps
 	docker build -f Dockerfile.builder -t crepair:builder .
