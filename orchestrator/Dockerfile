@@ -33,7 +33,8 @@ RUN apt-get update -qq \
       zlib1g-dev
 
 # install pyenv
-ARG PYENV_GIT_TAG=v2.2.5
+## https://github.com/nus-apr/CrashRepair/issues/175
+## ARG PYENV_GIT_TAG=v2.2.5
 RUN curl https://pyenv.run | bash
 ENV PATH "/root/.pyenv/bin:$PATH"
 
